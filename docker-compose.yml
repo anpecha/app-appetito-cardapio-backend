@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  cardapio_digital:
+    container_name: appetito_cardapio_digital
+    build: .
+    ports:
+      - "8003:8003"
+    env_file:
+      - .env
+    volumes:
+      - .:/app
+    command: uvicorn main:app --host 0.0.0.0 --port 8003 --reload
